@@ -18,14 +18,14 @@
     <div class="container">
         <div class="top">
             <h1 id="currentMonth">March 2024</h1>
-            <span>
+            <div style = "display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; margin: auto;">
                 <button class="btn" id="todayBtn">Today</button>
                 <button class="btn" id="prevBtn"><</button>
                 <button class="btn" id="nextBtn">></button>
                 <button class="btn" onclick="localStorage.removeItem('calendarEvents'); location.reload();">
                     Clear All Events
                 </button>
-            </span>
+            </div>
             <div class="view-toggle">
                 <button class="btn active" id="monthlyViewBtn">Monthly View</button>
                 <button class="btn" id="weeklyViewBtn">Weekly View</button>

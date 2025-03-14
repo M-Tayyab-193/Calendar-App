@@ -367,7 +367,11 @@ body {
     .heading {
         font-size: 1.1rem;
     }
-
+    .btn{
+        max-width: 100px;
+        max-height: 45px;
+        font-size: 13px;
+    }
     #currentMonth{
         font-size: 1.5rem;
     }
