@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('./bg.jpg');
+    background-position: center;
+    background-size: contain;
+   background-color: #1c1b1baf;
+   background-blend-mode: multiply;
+   position: relative;
+}
+
+.Note{
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    cursor: default;
+}
+
+.heading{
+    font-size: 2rem;
+}
+
+
+.container {
+    width: 80%;
+    background: #ffffff73;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(145, 143, 11, 0.1);
+    text-align: center;
+    box-shadow: 10px 10px 50px rgb(255, 255, 255);
+    min-height: 70%;
+}
+
+
+.box {
+    border-radius: 8px;
+   
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#currentMonth{
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0,0.5);
+    cursor: default;
+    transition: all 0.5s ease-in-out;
+    min-width: 20%;
+    text-align: left;
+}
+#currentMonth:hover{
+    transform: scale(1.05);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0,1);
+}
+
+
+.btn {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #09090a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin: 0 2px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0,1);
+    transition: 0.2s ease-in-out;
+}
+
+
+.btn:hover {
+    transform: scale(1.1);
+   background-color: #4d4d4e;
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.view-toggle .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+.view-toggle .btn.active {
+    background-color: #6B48FF;
+    color: white;
+    box-shadow: 2px 2px 10px rgba(107, 72, 255, 0.4);
+}
+
+.view-toggle .btn:hover {
+    background-color: #4AA5FF;
+    transform: scale(1.05);
+}
+
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.day {
+    font-weight: bold;
+    background: #dd6b13d3;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+.day:hover{
+    transform: scale(1.05);
+    
+}
+
+
+.calender {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    
+ 
+}
+
+.dates {
+    padding: 10px;
+    background: #ffffffcf;
+    border: 2px solid #333030;
+    min-height: 80px;
+    position: relative;
+    text-align: left;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.dates:hover {
+    transform: scale(1.05);
+}
+
+.event {
+    background: #af4c4c;
+    color: white;
+    padding: 3px 6px;
+    font-size: 12px;
+    margin-top: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+.modal h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.modal input, .modal textarea {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.modal input:focus, .modal textarea:focus {
+    border-color: #6B48FF;
+    box-shadow: 0 0 0 3px rgba(107, 72, 255, 0.1);
+    outline: none;
+}
+
+.modal textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#saveEvent {
+    background: linear-gradient(135deg, #6B48FF 0%, #4AA5FF 100%);
+    color: white;
+}
+
+#saveEvent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(106, 72, 255, 0.3);
+}
+
+#cancelEvent {
+    background: #f8f9fa;
+    color: #495057;
+    border: 2px solid #e9ecef;
+}
+
+#cancelEvent:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+  background: #d32f2f;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        min-height: 75%;
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 1.8rem;
+    }
+
+    .Note {
+        top: 15px;
+        font-size: 1rem;
+    }
+
+    .heading {
+        font-size: 1.8rem;
+    }
+
+    .view-toggle .btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .dates {
+        min-height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        min-height: 80%;
+        padding: 10px;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+    }
+    
+    .Note {
+        top: 5px;
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+
+    .heading {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .view-toggle {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .row {
+        grid-template-columns: repeat(7, minmax(30px, 1fr));
+        gap: 3px;
+    }
+
+    .day {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .calender {
+        grid-template-columns: repeat(7, minmax(30px, 1fr));
+        gap: 3px;
+    }
+
+    .dates {
+        padding: 8px;
+        min-height: 60px;
+        font-size: 12px;
+    }
+
+    .event {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+
+    .modal {
+        width: 95%;
+        max-width: 350px;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        min-height: 85%;
+        padding: 8px;
+    }
+
+    .heading {
+        font-size: 1.1rem;
+    }
+
+    #currentMonth{
+        font-size: 1.5rem;
+    }
+
+    .view-toggle {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row, .calender {
+        grid-template-columns: repeat(7, minmax(25px, 1fr));
+    }
+
+    .day {
+        font-size: 10px;
+        padding: 6px;
+    }
+
+    .dates {
+        min-height: 50px;
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .event {
+        font-size: 9px;
+        padding: 2px;
+    }
+
+    .modal {
+        width: 90%;
+        max-width: 320px;
+        padding: 1rem;
+    }
+
+    .modal h3 {
+        font-size: 1.2rem;
+    }
+
+    .modal input,
+    .modal textarea {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal button {
+        width: 100%;
+        padding: 0.7rem;
+    }
+}
